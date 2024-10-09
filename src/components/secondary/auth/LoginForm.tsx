@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { AxiosError } from "axios";
 import { User } from "@/redux/types/user.types";
@@ -20,6 +20,11 @@ export default function LoginForm({
   mutation,
   handleLogin
 }: Props) {
+  const [isFocused, setIsFocused] = useState({
+    email: false,
+    password: false
+  })
+
   return (
     <form onSubmit={form.onSubmit((values) => handleLogin(values))} className="rounded-[8px] space-y-5 bg-white border-[#DDE2E4] shadow-xl shadow-[#DDE2E4] border p-10">
       <div className="space-y-3">
@@ -33,24 +38,42 @@ export default function LoginForm({
       </div>
 
       <div className="space-y-4">
-        <div>
+        <div className="text-right">
           <Input
             type='text'
+            maxLength={15}
             placeholder="Email"
             icon="ic:baseline-email"
             {...form.getInputProps('email')}
+            onFocus={() => setIsFocused({ ...isFocused, email: true })} // Show label on focus
+            onBlur={() => setIsFocused({ ...isFocused, email: false })} // Hide label on blur
             className={`w-full ${form.errors.email ? 'border-red-500 focus:outline-red-500' : 'border-[#DDE2E4] focus:outline-[#FF8600]'} px-10 py-3 rounded-[6px] text-[#5B6871] border-2 placeholder:text-sm placeholder:text-[#B0BABF]`}
           />
+
+          {isFocused.email && (
+            <label className="mt-2 text-sm text-gray-500">
+              {form.values.email.length}/15
+            </label>
+          )}
         </div>
 
-        <div>
+        <div className="text-right">
           <Input
             type='password'
+            maxLength={15}
             icon="si:unlock-fill"
             placeholder="Password"
             {...form.getInputProps('password')}
+            onFocus={() => setIsFocused({ ...isFocused, password: true })} // Show label on focus
+            onBlur={() => setIsFocused({ ...isFocused, password: false })} // Hide label on blur
             className={`w-full ${form.errors.password ? 'border-red-500 focus:outline-red-500' : 'border-[#DDE2E4] focus:outline-[#FF8600]'} px-10 py-3 rounded-[6px] border-2 text-[#5B6871] placeholder:text-sm placeholder:text-[#B0BABF]`}
           />
+
+          {isFocused.password && (
+            <label className="mt-2 text-sm text-gray-500">
+              {form.values.password.length}/15
+            </label>
+          )}
         </div>
       </div>
 
@@ -78,7 +101,7 @@ export default function LoginForm({
         </p>
 
         <p className="text-[#84919A] text-sm">
-          Don’t have an account? <Link className="text-[#FF8600]" href='/auth/signup/with-email'>Register</Link>
+          Don’t have an account? <Link className="text-[#FF8600]" href='/auth/signup/'>Register</Link>
         </p>
       </div>
     </form>

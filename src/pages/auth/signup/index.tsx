@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import AuthLayout from "@/layouts/AuthLayout";
 
-export default function SignUpWithEmail() {
+export default function SignUp() {
   return (
     <AuthLayout>
       <Head>
