@@ -1,12 +1,15 @@
+import { BASE_URL } from "./env";
 import axios, { AxiosInstance } from "axios";
 import { User, Key } from "@/redux/types/user.types";
 import { getCookieItem } from "@/helpers/functions/cookie";
 
 const http: AxiosInstance = axios.create({
+  baseURL: BASE_URL,
   withCredentials: true,
 });
 
 const httpNoAuth: AxiosInstance = axios.create({
+  baseURL: BASE_URL,
   withCredentials: false,
 });
 
@@ -16,7 +19,7 @@ http.interceptors.request.use(async config => {
     // Client request: retrieve the user information from the cookies.
     const user: User = getCookieItem(Key.BUDDY_USER);
     // Extract the JWT token from the user data.
-    const jwt = user?.access_token;
+    const jwt = user?.token;
     // Construct the authorization token if JWT is present.
     const AUTH_TOKEN = jwt ? `bearer ${jwt}` : null;
 

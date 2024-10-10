@@ -1,9 +1,12 @@
 export type User = {
-  id: string;
+  id: number;
+  token: string;
   email: string;
-  firstName: string;
-  lastName: string;
-  access_token: string;
+  first_name: string;
+  last_name: string;
+  created_at: string;
+  updated_at: string;
+  email_verified_at: string | null;
 }
 
 export type UserState = { value: User | null }

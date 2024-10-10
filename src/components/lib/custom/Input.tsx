@@ -115,7 +115,7 @@ const Input: React.FC<Props> = ({
         </div>
       )}
 
-      <div className="mt-[0.2rem]">
+      <div className="mt-[0.2rem] !text-left">
         {error &&
           <label className="text-red-500 text-sm">
             {error}

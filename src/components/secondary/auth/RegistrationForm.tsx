@@ -4,20 +4,20 @@ import { AxiosError } from "axios";
 import Input from "@/components/lib/custom/Input";
 import { UseFormReturnType } from "@mantine/form";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { InitialValuesType } from "@/pages/auth/login";
 import { UseMutationResult } from "@tanstack/react-query";
-import { LoginData, LoginResponse } from "@/services/types/auth.types";
+import { RegistrationData } from "@/services/types/auth.types";
+import type { InitialValuesType } from "@/pages/auth/signup/with-email";
 
 interface Props {
-  handleLogin: (values: InitialValuesType) => void;
-  mutation: UseMutationResult<LoginResponse, AxiosError<unknown, any>, LoginData, unknown>;
+  handleRegister: (values: InitialValuesType) => void;
+  mutation: UseMutationResult<any, AxiosError<unknown, any>, RegistrationData, unknown>;
   form: UseFormReturnType<InitialValuesType, (values: InitialValuesType) => InitialValuesType>
 }
 
-export default function LoginForm({
+export default function RegistrationForm({
   form,
   mutation,
-  handleLogin
+  handleRegister
 }: Props) {
   const [isFocused, setIsFocused] = useState({
     email: false,
@@ -25,10 +25,10 @@ export default function LoginForm({
   })
 
   return (
-    <form onSubmit={form.onSubmit((values) => handleLogin(values))} className="rounded-[8px] space-y-5 bg-white border-[#DDE2E4] shadow-xl shadow-[#DDE2E4] border p-10">
+    <form onSubmit={form.onSubmit((values) => handleRegister(values))} className="rounded-[8px] space-y-5 bg-white border-[#DDE2E4] shadow-xl shadow-[#DDE2E4] border p-10">
       <div className="space-y-3">
         <h1 className="font-semibold text-[#1D1D18] text-2xl">
-          Log in to your account
+          Register your account
         </h1>
 
         <h3 className="text-[#5B6871] text-sm">
@@ -37,11 +37,35 @@ export default function LoginForm({
       </div>
 
       <div className="space-y-4">
+        <div className="flex items-start justify-between space-x-4">
+          <div>
+            <Input
+              type='text'
+              placeholder="First name"
+              icon="lets-icons:user-fill"
+              disabled={mutation.isPending}
+              {...form.getInputProps('first_name')}
+              className={`w-full ${form.errors.first_name ? 'border-red-500 focus:outline-red-500' : 'border-[#DDE2E4] focus:outline-[#FF8600]'} px-10 py-3 rounded-[6px] text-[#5B6871] border-2 placeholder:text-sm placeholder:text-[#B0BABF]`}
+            />
+          </div>
+
+          <div>
+            <Input
+              type='text'
+              placeholder="Last name"
+              icon="lets-icons:user-fill"
+              disabled={mutation.isPending}
+              {...form.getInputProps('last_name')}
+              className={`w-full ${form.errors.last_name ? 'border-red-500 focus:outline-red-500' : 'border-[#DDE2E4] focus:outline-[#FF8600]'} px-10 py-3 rounded-[6px] text-[#5B6871] border-2 placeholder:text-sm placeholder:text-[#B0BABF]`}
+            />
+          </div>
+        </div>
+
         <div className="text-right">
           <Input
             type='email'
             maxLength={30}
-            placeholder="Email"
+            placeholder="Work email"
             icon="ic:baseline-email"
             disabled={mutation.isPending}
             {...form.getInputProps('email')}
@@ -91,7 +115,7 @@ export default function LoginForm({
               icon="icomoon-free:spinner2"
               className={`animate-spin mx-auto`}
             /> :
-            'Login'
+            'Create account'
           }
         </button>
       </div>
@@ -102,7 +126,7 @@ export default function LoginForm({
         </p>
 
         <p className="text-[#84919A] text-sm">
-          Don’t have an account? <Link className="text-[#FF8600]" href='/auth/signup/'>Register</Link>
+          Already have an account? <Link className="text-[#FF8600]" href='/auth/login/'>Login</Link>
         </p>
       </div>
     </form>

@@ -73,7 +73,7 @@ export default function AuthLayout({ children }: Props) {
           </div>
 
           <div className='mt-auto flex justify-end mx-auto w-full xl:max-w-[35rem] max-w-[30rem]'>
-            <button className='px-4 py-3 space-x-2 shadow-xl shadow-[#DDE2E4] flex items-center bg-[#FF8600] hover:bg-[#ff8800e1] text-white rounded-full transition duration-75 delay-75 ease-linear'>
+            <button className='px-4 py-3 animate-bounce space-x-2 shadow-xl shadow-[#DDE2E4] flex items-center bg-[#FF8600] hover:bg-[#ff8800e1] text-white rounded-full transition duration-75 delay-75 ease-linear'>
               <p>
                 Get Help
               </p>

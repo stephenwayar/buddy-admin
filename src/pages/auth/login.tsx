@@ -10,7 +10,7 @@ import { setUser } from "@/redux/slices/user";
 import { useAppDispatch } from "@/redux/hooks";
 import { User } from "@/redux/types/user.types";
 import { useMutation } from "@tanstack/react-query";
-import { LoginData } from "@/services/types/auth.types";
+import { LoginData, LoginResponse } from "@/services/types/auth.types";
 import LoginForm from "@/components/secondary/auth/LoginForm";
 
 export interface InitialValuesType {
@@ -46,12 +46,18 @@ export default function Login() {
       const errorData = error.response?.data as { message: string };
 
       form.setErrors({
-        email: errorData.message || 'An error occurred'
+        email: errorData.message || 'An error occurred',
+        password: true
       })
     },
-    onSuccess: (res: User) => {
+    onSuccess: (res: LoginResponse) => {
+      const user: User = {
+        ...res.data.user,
+        token: res.data.token
+      }
+
       // Dispatch the user data to the store
-      dispatch(setUser(res));
+      dispatch(setUser(user));
 
       // Reset the form fields
       form.reset();

@@ -6,7 +6,7 @@ const nextConfig = {
 
   // Register public environment variables 
   env: {
-    MONGODB_URI: process.env.MONGODB_URI,
+    BASE_URL: process.env.BASE_URL,
     ENCRYPTION_KEY: process.env.ENCRYPTION_KEY
   },
 
