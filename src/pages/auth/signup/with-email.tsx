@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import Head from "next/head";
 import { AxiosError } from "axios";
 import { useForm } from "@mantine/form";
 import AuthLayout from "@/layouts/AuthLayout";
 import { register } from "@/services/api/auth";
 import { useMutation } from "@tanstack/react-query";
-import OTPForm from "@/components/secondary/auth/OTPForm";
 import { RegistrationData } from "@/services/types/auth.types";
-import ConfirmEmail from "@/components/secondary/auth/ConfirmEmail";
-import EmailVerified from "@/components/secondary/auth/EmailVerified";
+import LoadingState from "@/components/secondary/common/LoadingState";
 import RegistrationForm from "@/components/secondary/auth/RegistrationForm";
+
+const OTPForm = lazy(() => import('@/components/secondary/auth/OTPForm'));
+const ConfirmEmail = lazy(() => import('@/components/secondary/auth/ConfirmEmail'));
+const EmailVerified = lazy(() => import('@/components/secondary/auth/EmailVerified'));
 
 export type Step = 0 | 1 | 2 | 3
 
@@ -87,21 +89,27 @@ export default function SignUpWithEmail() {
       )}
 
       {step === 1 && (
-        <ConfirmEmail
-          form={form}
-          setStep={setStep}
-        />
+        <Suspense fallback={<LoadingState />}>
+          <ConfirmEmail
+            form={form}
+            setStep={setStep}
+          />
+        </Suspense>
       )}
 
       {step === 2 && (
-        <OTPForm 
-          form={form}
-          setStep={setStep}
-        />
+        <Suspense fallback={<LoadingState />}>
+          <OTPForm
+            form={form}
+            setStep={setStep}
+          />
+        </Suspense>
       )}
 
       {step === 3 && (
-        <EmailVerified />
+        <Suspense fallback={<LoadingState />}>
+          <EmailVerified />
+        </Suspense>
       )}
     </AuthLayout>
   )

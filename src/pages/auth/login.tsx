@@ -80,13 +80,13 @@ export default function Login() {
         } else {
           // Default redirect to the dashboard if no URL is found
           setTimeout(() => {
-            router.push('/dashboard');
+            router.push('/dashboard/my-portfolio');
           }, 1500);
         }
       } else {
         // Redirect to the dashboard if no redirect parameter is present
         setTimeout(() => {
-          router.push('/dashboard');
+          router.push('/dashboard/my-portfolio');
         }, 1500);
       }
     }

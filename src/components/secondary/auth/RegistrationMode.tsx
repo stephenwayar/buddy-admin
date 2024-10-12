@@ -49,7 +49,7 @@ export default function RegistrationMode() {
 
       <div className="space-y-16 !mt-10">
         <p className="text-[#84919A] text-sm">
-          By clicking the button above, you agree to our <Link className="text-[#FF8600]" href='#terms'>Terms of Service</Link> and <Link className="text-[#FF8600]" href='#policy'>Privacy Policy.</Link>
+          By clicking the button above, you agree to our <Link className="text-[#FF8600]" href='/#terms'>Terms of Service</Link> and <Link className="text-[#FF8600]" href='/#policy'>Privacy Policy.</Link>
         </p>
 
         <p className="text-[#84919A] text-sm">

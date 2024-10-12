@@ -25,7 +25,7 @@ export function middleware(request: NextRequest) {
 
   // Redirect logged-in users trying to access authentication pages
   if (authPages.includes(request.nextUrl.pathname) && isLoggedIn) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
+    return NextResponse.redirect(new URL('/dashboard/my-portfolio', request.url));
   }
 
   // Allow the request to proceed to the next middleware

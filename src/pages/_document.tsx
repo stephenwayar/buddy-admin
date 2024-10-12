@@ -1,4 +1,3 @@
-import { Toaster } from 'react-hot-toast';
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -13,13 +12,7 @@ export default function Document() {
 
       <body>
         <Main />
-
         <NextScript />
-
-        <Toaster
-          reverseOrder={false}
-          position="bottom-center"
-        />
       </body>
     </Html>
   );

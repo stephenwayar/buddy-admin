@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { Toaster } from 'react-hot-toast';
 import chatIcon from '@/assets/svgs/bi_chat.svg'
 import checkIcon from '@/assets/svgs/Checkbox.svg'
 import Logo from '@/components/secondary/common/Logo';
@@ -36,6 +37,11 @@ export default function AuthLayout({ children }: Props) {
         <div className="w-[50%] h-[100vh] py-12 px-4 fixed bg-white">
           <div className='mx-auto max-w-[30rem] space-y-32'>
             <Logo />
+
+            <Toaster
+              reverseOrder={false}
+              position="bottom-center"
+            />
 
             <div className='space-y-20'>
               <div className='space-y-8'>
