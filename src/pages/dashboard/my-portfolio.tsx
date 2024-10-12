@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import DashboardLayout from "@/layouts/DashboardLayout";
+import TopBar from "@/components/secondary/nav/TopBar";
 
 export default function MyPortfolio() {
   return (
@@ -11,9 +12,7 @@ export default function MyPortfolio() {
         </title>
       </Head>
 
-      <div className="h-[60rem] w-ful bg-blue-700">
-
-      </div>
+      <TopBar pageTitle='My Portfolio' />
     </DashboardLayout>
   )
 }
