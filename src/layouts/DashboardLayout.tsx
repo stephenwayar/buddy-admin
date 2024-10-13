@@ -22,7 +22,7 @@ export default function DashboardLayout({ children }: Props) {
       </div>
 
       <div className="md:ml-[14rem]">
-        <div className="pt-4 pb-20 px-4 sm:px-8">
+        <div className="pb-10 px-4 sm:px-8">
           {children}
         </div>
       </div>

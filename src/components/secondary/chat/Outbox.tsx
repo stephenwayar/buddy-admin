@@ -13,7 +13,7 @@ export default function Outbox({ data }: Props) {
   return (
     <div className="flex justify-end items-center">
       <div className="flex items-end space-x-2">
-        <div className="px-3 py-2 bg-[#F1F1F1] max-w-[40rem] rounded-t-[10px] rounded-l-[10px]">
+        <div className="px-3 py-2 bg-[#F1F1F1] max-w-[20rem] rounded-t-[10px] rounded-l-[10px]">
           <p className="text-[#FF8600]">
             {data.message} 
           </p>

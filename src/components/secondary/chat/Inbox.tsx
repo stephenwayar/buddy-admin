@@ -24,7 +24,7 @@ export default function Inbox({ data }: Props) {
           </div>
         </div>
 
-        <div className="px-3 py-2 bg-[#F1F1F1] max-w-[40rem] rounded-t-[10px] rounded-r-[10px]">
+        <div className="px-3 py-2 bg-[#F1F1F1] max-w-[20rem] rounded-t-[10px] rounded-r-[10px]">
           <p className="text-[#2E2E2E]">
             {data.message} 
           </p>

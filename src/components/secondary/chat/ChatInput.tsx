@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import type { IMessage } from "./Chat";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
@@ -7,7 +7,12 @@ interface Props {
 }
 
 export default function ChatInput({ emitMessage }: Props) {
+  const inputRef = useRef<HTMLInputElement>(null)
   const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    inputRef.current?.focus(); // Automatically focus input 
+  }, []);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -47,6 +52,7 @@ export default function ChatInput({ emitMessage }: Props) {
         {/* Input field */}
         <input
           type="text"
+          ref={inputRef}
           value={message}
           onKeyDown={handleKeyDown}
           placeholder="Write something..."
