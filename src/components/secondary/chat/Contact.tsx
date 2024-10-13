@@ -1,17 +1,20 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { IContact } from "./Conversations";
+import { useParams } from "next/navigation";
 import avatar from '@/assets/svgs/avatar.svg'
 import tickIcon from '@/assets/svgs/tick-dm.svg'
-import { IContact } from "./Conversations";
 
 interface Props { data: IContact }
 
 export default function Contact({ data }: Props) {
+  const params = useParams()
+
   return (
     <div>
       <Link href={`/dashboard/messages/${data.id}`}>
-        <div className="flex items-center p-2 hover:shadow-md rounded-[10px] transition delay-75 duration-75 ease-linea shadow-[#DDE2E4]">
+        <div className={`flex items-center p-2 hover:shadow-md rounded-[10px] transition delay-75 duration-75 ease-linea shadow-[#DDE2E4] ${params.id === data.id && 'shadow-md'}`}>
           <div className="flex items-center space-x-3 w-full">
             <div>
               <div className='rounded-full w-[40px] h-[40px]'>
@@ -51,8 +54,8 @@ export default function Contact({ data }: Props) {
                   />
                 </div>
               ) : (
-                <div className="h-4 w-4 pt-[1px] text-[9px] text-center bg-[#FF8600] text-white rounded-full">
-                  {data.unreadMessages}
+                <div className="h-4 px-[5px] text-[9px] flex items-center justify-center bg-[#FF8600] text-white rounded-full">
+                  <p>{data.unreadMessages}</p>
                 </div>
               )}
             </div>

@@ -45,7 +45,7 @@ const contacts: IContact[] = [
     name: 'Chris Evans',
     lastMessage: 'Great job today!',
     timeStamp: '6:20pm',
-    unreadMessages: 3
+    unreadMessages: 0
   }
 ];
 
@@ -71,7 +71,7 @@ export default function Conversations() {
   };
 
   return (
-    <div className="w-full space-y-5 overflow-hidden overflow-y-scroll pb-10 lg:w-[25rem] bg-[#FAFAFA] p-4 h-full rounded-[12px]">
+    <div className="w-full space-y-5 overflow-hidden overflow-y-scroll pb-10 lg:w-[20rem] bg-[#FAFAFA] p-4 h-full rounded-[12px]">
       <ProfileBar />
 
       <div>

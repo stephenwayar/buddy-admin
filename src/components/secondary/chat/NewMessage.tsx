@@ -4,7 +4,7 @@ import newMessageIcon from '@/assets/svgs/undraw-dms.svg'
 
 export default function NewMessage() {
   return (
-    <div className="w-full bg-[#FAFAFA] p-4 h-full rounded-[12px] hidden lg:block">
+    <div className="w-full bg-[#FAFAFA] p-4 h-full rounded-[12px]">
       <div className="h-full flex justify-center items-center px-4 sm:px-6">
         <div className="space-y-4 text-center mx-auto max-w-[30rem]">
           <div className='w-[140px] mx-auto'>

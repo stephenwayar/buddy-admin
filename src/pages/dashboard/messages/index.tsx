@@ -2,9 +2,9 @@ import React from "react";
 import Head from "next/head";
 import TopBar from "@/components/secondary/nav/TopBar";
 import DashboardLayout from "@/layouts/DashboardLayout";
-import DMLayout from "@/components/secondary/dm/DMLayout";
-import NewMessage from "@/components/secondary/dm/NewMessage";
-import Conversations from "@/components/secondary/dm/Conversations";
+import DMLayout from "@/components/secondary/chat/DMLayout";
+import NewMessage from "@/components/secondary/chat/NewMessage";
+import Conversations from "@/components/secondary/chat/Conversations";
 
 export default function Messages() {
   return (
@@ -16,9 +16,13 @@ export default function Messages() {
       <TopBar pageTitle='Messages' />
 
       <DMLayout>
-        <Conversations />
+        <div className="lg:w-fit w-full">
+          <Conversations />
+        </div>
 
-        <NewMessage />
+        <div className="hidden lg:block w-full">
+          <NewMessage />
+        </div>
       </DMLayout>
     </DashboardLayout>
   )
