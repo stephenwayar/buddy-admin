@@ -99,9 +99,18 @@ const Stat = ({ rate, title, amount, percentage, series }: StatProps) => {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full h-full">
         <ReactECharts
-          option={options}
+          option={{
+            ...options,
+            grid: {
+              left: '0%',
+              right: '0%',
+              top: '5px',
+              bottom: '0%',
+              containLabel: true // Ensure labels are contained within the grid
+            }
+          }}
           style={{ height: '100%', width: '100%' }}
         />
       </div>

@@ -14,7 +14,7 @@ export default function TopBar({ pageTitle }: Props) {
 
   return (
     <React.Fragment>
-      <div className="sticky top-0 pb-3 pt-4 bg-[#f5f5f5]">
+      <div className="sticky z-[100] top-0 pb-3 pt-4 bg-[#f5f5f5]">
         <div className="w-full flex space-x-5  md:space-x-0 items-center">
           <div className="md:hidden">
             <Burger
