@@ -6,11 +6,11 @@ export default function Watchlist() {
   return (
     <div className="bg-white rounded-[16px] space-y-3 p-5">
       <div className="flex justify-between items-center">
-        <p className="text-[#3B3B45] font-bold text-xl">
+        <p className="text-[#3B3B45] font-bold text-lg">
           Watchlist
         </p>
 
-        <button className="text-[#FF8600] font-semibold text-sm">
+        <button className="text-[#FF8600] font-semibold text-xs">
           VIEW ALL
         </button>
       </div>
@@ -69,20 +69,20 @@ const Stat = ({ rate, title, amount, percentage, series }: StatProps) => {
   };
 
   return (
-    <div className="flex p-4 bg-[#F6F6F6] rounded-[16px]">
+    <div className="flex p-4 bg-[#F6F6F6] items-center rounded-[16px]">
       <div className="w-[35%]">
         <div className="w-full flex items-start justify-between">
-          <div className="space-y-1">
-            <p className="text-[#3B3B45] truncate font-bold text-lg">
+          <div className="space-y-2">
+            <p className="text-[#3B3B45] truncate font-bold">
               {title}
             </p>
 
-            <div>
-              <p className="text-[#A3A3A6] truncate font-bold">
+            <div className="space-y-1">
+              <p className="text-[#A3A3A6] truncate font-bold text-sm">
                 {amount}
               </p>
 
-              <p style={{ color }} className="font-bold truncate text-sm">
+              <p style={{ color }} className="font-bold truncate text-xs">
                 {percentage}
               </p>
             </div>

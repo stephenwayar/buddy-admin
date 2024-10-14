@@ -7,7 +7,7 @@ import Image, { StaticImageData } from "next/image";
 export default function TrendingNews() {
   return (
     <div className="bg-white rounded-[16px] space-y-3 p-5">
-      <h1 className="text-[#3B3B45] font-bold text-xl">
+      <h1 className="text-[#3B3B45] font-bold text-lg">
         Trending News
       </h1>
 
@@ -57,11 +57,11 @@ const NewsLink = ({ icon, title, subtitle }: NewsLinkProps) => {
           </div>
 
           <div className="w-full overflow-hidden">
-            <h1 className="text-[#3B3B45] truncate font-bold text-lg">
+            <h1 className="text-[#3B3B45] truncate font-bold">
               {title}
             </h1>
 
-            <p className="text-[#A3A3A6] truncate">
+            <p className="text-[#A3A3A6] text-sm truncate">
               {subtitle}
             </p>
           </div>

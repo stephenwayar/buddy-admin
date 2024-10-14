@@ -7,7 +7,7 @@ import instagramIcon from '@/assets/svgs/instagramIcon.svg'
 export default function Revenue() {
   return (
     <div className="bg-white rounded-[16px] space-y-3 p-5">
-      <h1 className="text-[#3B3B45] font-bold text-xl">
+      <h1 className="text-[#3B3B45] font-bold text-lg">
         Revenue
       </h1>
 
@@ -41,12 +41,12 @@ interface StatProps {
 const Stat = ({ icon, title, subtitle }: StatProps) => {
   return (
     <div className="border-[#F1F1F1] border-2 flex justify-between items-center rounded-[16px] p-4">
-      <div className="overflow-hidden space-x-2">
-        <h1 className="text-[#3B3B45] truncate font-bold text-xl">
+      <div className="overflow-hidden">
+        <h1 className="text-[#3B3B45] truncate font-bold text-lg">
           {title}
         </h1>
 
-        <p className="text-[#A3A3A6] truncate">
+        <p className="text-[#A3A3A6] text-sm truncate">
           {subtitle}
         </p>
       </div>
