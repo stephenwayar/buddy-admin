@@ -25,7 +25,7 @@ export default function TopBar({ pageTitle }: Props) {
 
           <div className="flex justify-between w-full items-center">
             <div className="w-1/3">
-              <h1 className="text-2xl text-[#3B3B45] font-bold">
+              <h1 className="text-2xl whitespace-nowrap text-[#3B3B45] font-bold">
                 {pageTitle}
               </h1>
             </div>

@@ -64,7 +64,7 @@ export default function TrendingPosts() {
         Trending Posts
       </h1>
 
-      <div ref={scrollRef} className="flex w-full overflow-x-auto space-x-4 items-center no-scrollbar">
+      <div ref={scrollRef} className="flex w-full scroll-smooth overflow-x-auto space-x-4 items-center no-scrollbar">
         {posts.map((post, i) => (
           <Post
             key={i}
