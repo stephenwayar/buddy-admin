@@ -14,7 +14,7 @@ export default function Contact({ data }: Props) {
   return (
     <div>
       <Link href={`/dashboard/messages/${data.id}`}>
-        <div className={`flex items-center p-2 hover:shadow-md rounded-[10px] transition delay-75 duration-75 ease-linea shadow-[#DDE2E4] ${params.id === data.id && 'shadow-md'}`}>
+        <div className={`flex items-center p-2 hover:shadow-md rounded-[10px] transition delay-75 duration-75 ease-linea shadow-[#DDE2E4] ${params?.id === data.id && 'shadow-md'}`}>
           <div className="flex items-center space-x-3 w-full">
             <div>
               <div className='rounded-full w-[40px] h-[40px]'>

@@ -89,25 +89,23 @@ export default function Conversations() {
       <hr className="border-b-2 bg-[#CDCDCD]" />
 
       <div>
-        {contacts.length === 0 ? (
-          // Show when there are no contacts at all
+        {contacts.length > 0 ? (
+          filteredContacts.length > 0 ? (
+            // Show filtered contacts if matches are found
+            <div className="space-y-2">
+              {filteredContacts.map((c, i) => (
+                <Contact key={i} data={c} />
+              ))}
+            </div>
+          ) : (
+            // Show when there are contacts but no matches for the query
+            <h3 className="text-[#FF8600] text-center animate-pulse">
+              No match
+            </h3>
+          )
+        ) : (
           <h3 className="text-[#FF8600] text-center animate-pulse">
             No contacts
-          </h3>
-        ) : filteredContacts.length > 0 ? (
-          // Show filtered contacts if matches are found
-            <div className="space-y-2">
-            {filteredContacts.map((contact, i) => (
-              <Contact
-                key={i}
-                data={contact}
-              />
-            ))}
-          </div>
-        ) : (
-          // Show when there are contacts but no matches for the query
-          <h3 className="text-[#FF8600] text-center animate-pulse">
-            No match
           </h3>
         )}
       </div>
